@@ -1,75 +1,110 @@
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-## Template Instructions
+## Project Warehouse analytics
+project warehouse analytics analyses the DataCo Supply Chain dataset focusing on shipping performance, delivery reliability, product/category patterns, and geographic delivery outcomes.
 
-Welcome,
+## Dataset Content
+This project uses the DataCo supply chain datset, a large real-world supply chain data set containing
+- Order information
+- shipping details
+- delivery status
+- product information
+- customer location
+The datset was large and after running the ETL pipeline the file reached over 100MB which caused github to reject the push. To resolve this the cleaned dataset was added to '.gitignore', the file was removed from git tracking using 'git rm --cached', and the cleaned datset is generated locally in VSCode.
 
-This is the Code Institute student template for the three Data Analytics capstone projects. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+## Business Requirements
+1. analyse delivery performance across all orders
+- identify how many deliveries are late vs on time
+- understand factors contributing to late deliveries
+- measure the difference between scheduled and actual shipping days
+2. Evaluate the impact of shipping mode on delivery outcomes
+- compare late delivery risk across different shipping modes
+- determine which shipping methods are most reliable
+- highlight modes that consistently underperform
+3. assess geographic delivery performance
+- compare delivery reliability across countries and regions
+- identify locations with higher late delivery risk
+- explore whether distance affects delivery outcomes
+4. prepare a clean, structured datset for future modelling and dashboarding
+- ensure the ETL pipeline produces a reproducible cleaned dataset
+- enable future predictive modelling (e.g preedicting late deliveries)
+- support future dashboard development for operational monitoring
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
 
-If you are working on the first capstone project, you can also delete `.python-version`, `.slugignore`, `Procfile` and `setup.sh` as they are only required for later dashboard projects. 
+## Hypothesis
+1. shipping mode affects the likelyhood of late delivery.
+- group orders by 'shipping_mode
+- calculate the percentage of late deliveries
+- compare modes using bar charts and summary statistics
+2. The difference between scheduled and actual shipping delays is a strong indicator of late delivery
+- create a new feature (column) shipping_delay = days_for_shipping_real - days_for_shipment_scheduled
+- compare shipping delay values between late vs on-time deliveries
+- use boxplots or correlation analysis
+3. Certain product categories have higher late delivery rates than others.  
+- Group orders by category_name
+- Calculate late delivery rate per category
+- Visualise using grouped bar charts
+4. Customer country influences delivery reliability.  
+- Group orders by customer_country
+- Calculate late delivery percentage per country
+- Visualise using bar charts or geographic plots
+5. Longer shipping distances increase the chance of late delivery.
+- Approximate distance using latitude/longitude
+- Compare distance ranges against late_delivery_risk
+- Use scatter plots or boxplots
 
-## How to use this repo
-
-1. Use this template to create your GitHub project repo. Click the **Use this template** button, then click **Create a new repository**.
-
-1. Copy the URL of your repository to your clipboard.
-
-1. In VS Code, select **File** -> **Open Folder**.
-
-1. Select your `vscode-projects` folder, then click the **Select Folder** button on Windows, or the **Open** button on Mac.
-
-1. From the top menu in VS Code, select **Terminal** > **New Terminal** to open a new terminal.
-
-1. In the terminal, type `git clone` followed by the URL of your GitHub repository. Then hit **Enter**. This command will download all the files in your GitHub repository into your vscode-projects folder.
-
-1. In VS Code, select **File** > **Open Folder** again.
-
-1. This time, navigate to and select the folder for the project you just downloaded. Then, click **Select Folder**.
-
-1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate. You need to create your virtual environment, also called a venv, and then activate it whenever you return to your workspace.
-Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select **Command Palette** to open the VS Code command palette.
-
-1. In the command palette, type: *create environment* and select **Python: Create Environment…**
-
-1. Choose **Venv** from the dropdown list.
-
-1. Choose the Python version you installed earlier. Currently, we recommend Python 3.12.8
-
-1. **DO NOT** click the box next to `requirements.txt`; you need to complete additional steps before installing your dependencies. Click **OK**.
-
-1. You will see a `.venv` folder appear in the file explorer pane, indicating that the virtual environment has been created.
-
-1. **Important**: Note that the `.venv` folder is in the `.gitignore` file so that Git won't track it.
-
-1. Return to the terminal by clicking on the TERMINAL tab, or click on the **Terminal** menu and choose **New Terminal** if no terminal is currently open.
-
-1. In the terminal, use the command below to install your dependencies. This may take several minutes.
-
- ```console
- pip3 install -r requirements.txt
- ```
-
-1. Open the `jupyter_notebooks` directory, and click on the notebook you want to open.
-
-1. Click the **Kernel** button, then choose **Python Environments**.
-
-Note that the kernel says `Python 3.12.8` as it inherits from the venv, so it will be Python-3.12.8 if that is what is installed on your PC. To confirm this, you can use the command below in a notebook code cell.
-
-```console
-! python --version
-```
-
-## Deployment Reminders
-
-* The `.python-version`, `.slugignore`, `Procfile` and `setup.sh` files are necessary only if you are deploying a Streamlit app to Heroku as part of your submission for units 2 and 3. 
-* Set the `.python-version` Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack, currently supported version that most closely matches what you used in this project.
-* The project can be deployed to Heroku using the following steps.
-
-1. Log in to Heroku and create an App
-2. At the **Deploy** tab, select **GitHub** as the deployment method.
-3. Select your repository name and click **Search**. Once it is found, click **Connect**.
-4. Select the branch you want to deploy, then click **Deploy Branch**.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button **Open App** at the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the `.slugignore` file.
+Project Plan
+Outline the high-level steps taken for the analysis.
+How was the data managed throughout the collection, processing, analysis and interpretation steps?
+Why did you choose the research methodologies you used?
+The rationale to map the business requirements to the Data Visualisations
+List your business requirements and a rationale for mapping them to the Data Visualisations
+Analysis techniques used
+List the data analysis methods used and explain limitations or alternative approaches.
+How did you structure the data analysis techniques? Justify your response.
+Did the data limit you, and did you use an alternative approach to meet these challenges?
+How did you use generative AI tools to help with ideation, design thinking and code optimisation?
+Ethical considerations (optional)
+Feel free to delete this section if this is a data visualisation only (unit 1 or 2) project submission.
+Were there any data privacy, bias or fairness issues with the data?
+How did you overcome any legal or societal issues?
+Dashboard Design (optional)
+Feel free to delete this section if this is a data visualisation only (unit 1 or 2) project submission.
+List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
+Later, during project development, you may revisit your dashboard plan to update a feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later you used another plot type).
+How were data insights communicated to technical and non-technical audiences?
+Explain how the dashboard was designed to communicate complex data insights to different audiences.
+Unfixed Bugs
+Please list any unfixed bugs and explain why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation are not valid reasons to leave bugs unfixed.
+Did you recognise gaps in your knowledge, and how did you address them?
+If applicable, include evidence of feedback received (from peers or instructors) and how it improved your approach or understanding.
+Development Roadmap
+What challenges did you face, and what strategies were used to overcome these challenges?
+What new skills or tools do you plan to learn next based on your project experience?
+Deployment (optional)
+If this is a Unit 3 Streamlit, Power BI or Tableau Public project, then you can include a link here and explain how you hosted the dashboard.
+Heroku (optional)
+This section is necessary only if you are deploying a Streamlit app to Heroku as part of your submission for units 2 and 3.
+The App live link is: https://YOUR_APP_NAME.herokuapp.com/
+Set the .python-version Python version to a Heroku-22 stack currently supported version.
+The project was deployed to Heroku using the following steps.
+Log in to Heroku and create an App
+From the Deploy tab, select GitHub as the deployment method.
+Select your repository name and click Search. Once it is found, click Connect.
+Select the branch you want to deploy, then click Deploy Branch.
+The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App at the top of the page to access your App.
+If the slug size is too large, then add large files not required for the app to the .slugignore file.
+Main Data Analysis Libraries
+Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
+Credits
+In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials; however, it is important to be very specific about these sources to avoid plagiarism.
+You can break the credits section into Content and Media, depending on what you include in your project.
+Content
+The text for the Home page was taken from the Wikipedia Article A
+Instructions on how to implement form validation were taken from a Specific YouTube Tutorial
+The icons in the footer were taken from Font Awesome
+Media
+The photos used on the home and sign-up page are from This Open-Source site
+The images used for the gallery page were taken from this other open-source site
+Acknowledgements (optional)
+Thank the people who supported this project.
