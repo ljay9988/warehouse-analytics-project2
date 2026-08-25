@@ -113,6 +113,7 @@ Mode
 Variance
 Standard deviation
 Probability
+chi-squared hypothesis testing
 
 Stage 4 — Machine Learning
 
@@ -253,7 +254,7 @@ The dashboard has not currently been deployed as a public Power BI web applicati
 
 
 ## Main Data Analysis Libraries
-Pandas
+## Pandas
 
 Pandas was used throughout the project for loading, cleaning, transforming and analysing the DataCo dataset.
 
@@ -269,7 +270,7 @@ Official documentation:
 
 https://pandas.pydata.org/docs/
 
-NumPy
+## NumPy
 
 NumPy was used for numerical operations and supporting data analysis.
 
@@ -277,7 +278,7 @@ Official documentation:
 
 https://numpy.org/doc/
 
-Scikit-learn
+## Scikit-learn
 
 Scikit-learn was used for the machine learning stage.
 
@@ -293,7 +294,7 @@ Official documentation:
 
 https://scikit-learn.org/stable/
 
-Plotly
+## Plotly
 
 Plotly was used to create exploratory data visualisations.
 
@@ -301,28 +302,35 @@ The project used Plotly for:
 
 Bar charts.
 Box plots.
-
+nbformat==4.2.0
 Official documentation:
 
 https://plotly.com/python/
+## SciPy
 
-Jupyter and nbformat
+SciPy was used for statistical analysis during the EDA stage of the project.
+
+The project used SciPy for:
+
+* Chi-square tests of independence.
+* Calculating chi-square statistics and p-values.
+* Testing whether variables such as order month and product category were associated with late delivery risk.
+
+Official documentation:
+
+https://docs.scipy.org/doc/scipy/
+
+## Jupyter and nbformat
 
 Jupyter notebooks were used for the ETL, EDA and machine learning workflows.
 
-The project specifically includes:
-
-nbformat==4.2.0
-
-This version is included as a project environment requirement.
 
 Official documentation:
 
 https://jupyter.org/documentation
 
-https://nbformat.readthedocs.io/
 
-Power BI
+## Power BI
 
 Power BI was used to create the final interactive dashboard.
 
